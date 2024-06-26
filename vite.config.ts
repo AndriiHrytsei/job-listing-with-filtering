@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [react()],
   //! When creating a project using this template, 
   //! change the value of "base" to the name of your repository
-  base: "/react-vite-template-ts/"
+  base: "/job-listing-with-filtering/"
 })
