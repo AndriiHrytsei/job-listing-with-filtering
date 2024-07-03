@@ -1,5 +1,11 @@
-function App() {
-  return <h1>React + Vite + Typescript project template</h1>;
+import Joblist from "../JobList/Joblist";
+
+function App() {  
+  return (
+    <>
+      <Joblist />
+    </>
+  );
 }
 
 export default App;
