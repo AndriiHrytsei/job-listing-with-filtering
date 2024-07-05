@@ -3,20 +3,21 @@ import data from "../../data.json";
 import css from "./JobList.module.css";
 
 const Joblist = () => {
-  const [filter, setFilter] = useState<string[]>([]);
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   const handleGetBtnValue = (e: React.MouseEvent<HTMLButtonElement>): void => {
     const value: string = e.currentTarget.value;
-    if (filter.includes(value)) {
+    if (selectedFilters.includes(value)) {
       return;
     }
-    setFilter((prevState) => [...prevState, value]);
+    setSelectedFilters((prevState) => [...prevState, value]);
   };
 
   return (
     <ul className={css.jobList}>
       {data.map((item) => {
-        if (filter.length >= 0) {
+        const filtersList = item.languages.concat(item.tools).concat(item.level).concat(item.role)
+        if (selectedFilters.every(filter => filtersList.includes(filter))) {
           return (
             <li key={item.id} className={css.jobItem}>
               <div className={css.companyLogo}>
