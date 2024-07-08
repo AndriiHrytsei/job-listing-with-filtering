@@ -1,0 +1,11 @@
+.filtersListContainer {
+  width: 90%;
+  border: 1px solid;
+  margin: 0 auto;
+}
+
+.filtersList { 
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
