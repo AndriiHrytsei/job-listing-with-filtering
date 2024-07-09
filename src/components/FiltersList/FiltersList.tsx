@@ -7,10 +7,11 @@ const FiltersList = ({
   selectedFilters: string[];
   removeFilter: Function;
 }) => {
-
-  const handleRemoveFilter = (filterIndex: number) => {
-    removeFilter((prevState: string[]) => prevState.filter((filter) => prevState.indexOf(filter) !== filterIndex))
-  }
+  const handleRemoveFilter = (filterIndex: number): void => {
+    removeFilter((prevState: string[]) =>
+      prevState.filter((_, index) => index !== filterIndex)
+    );
+  };
 
   return (
     <section className={css.filtersListContainer}>
@@ -18,7 +19,9 @@ const FiltersList = ({
         {selectedFilters.map((filter, index) => (
           <li className={css.filterItem} key={index}>
             <span>{filter}</span>
-            <button type="button" onClick={() => handleRemoveFilter(index)}>X</button>
+            <button type="button" onClick={() => handleRemoveFilter(index)}>
+              X
+            </button>
           </li>
         ))}
       </ul>
