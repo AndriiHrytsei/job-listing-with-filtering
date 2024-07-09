@@ -1,24 +1,29 @@
 import { useState } from "react";
 import Joblist from "../JobList/Joblist";
 import FiltersList from "../FiltersList/FiltersList";
+import Header from "../Header/Header";
+import Main from "../Main/Main";
 
-function App() {  
-
+function App() {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
-  const handleAddFilter = (data: string[]) => {
-    setSelectedFilters(data)
-  }
-
-  const handleRemoveFilter = (data: string[]) => {
-    setSelectedFilters(data)
-  }
-
+  const handleEditFilters = (data: string[]): void => {
+    setSelectedFilters(data);
+  };
 
   return (
     <>
-      <FiltersList selectedFilters={selectedFilters} removeFilter={handleAddFilter}/>
-      <Joblist selectedFilters={selectedFilters} addFilter={handleAddFilter}/>
+      <Header />
+      <Main>
+        <FiltersList
+          selectedFilters={selectedFilters}
+          removeFilter={handleEditFilters}
+        />
+        <Joblist
+          selectedFilters={selectedFilters}
+          addFilter={handleEditFilters}
+        />
+      </Main>
     </>
   );
 }
