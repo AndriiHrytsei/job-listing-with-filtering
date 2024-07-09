@@ -1,7 +1,14 @@
 .header {
   height: 9.7rem;
-  background-image: url(./images/bg-header-mobile.svg);
+  background-image: url(../../../public/images/bg-header-mobile.svg);
   background-color: var(--desaturated-dark-cyan);
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+@media screen and (min-width: 1000px) {
+  .header {
+    background-image: url(../../../public/images/bg-header-desktop.svg);
+  }
+}
+
