@@ -32,12 +32,16 @@ const Joblist = ({
                   <img src={item.logo} alt="company logo" />
                 </div>
                 <div className={css.jobInfo}>
-                  <h3 className={css.companyName}>{item.company}</h3>
+                  <div className={css.heading}>
+                    <h3 className={css.companyName}>{item.company}</h3>
+                    {item.new === true ? <span className={css.new}>NEW!</span> : <></>}
+                    {item.featured === true ? <span className={css.featured}>FEATURED</span> : <></>}
+                  </div>
                   <h2 className={css.jobName}>{item.position}</h2>
                   <ul className={css.jobDetails}>
-                    <li>{item.postedAt}</li>
-                    <li>{item.contract}</li>
-                    <li>{item.location}</li>
+                    <li className={css.jobDetailsItem}>{item.postedAt}</li>
+                    <li className={css.jobDetailsItem}>{item.contract}</li>
+                    <li className={css.jobDetailsItem}>{item.location}</li>
                   </ul>
                 </div>
                 <ul className={css.stack}>
@@ -46,6 +50,7 @@ const Joblist = ({
                       type="button"
                       onClick={handleAddFilter}
                       value={item.role}
+                      className={css.stackBtn}
                     >
                       {item.role}
                     </button>
@@ -55,6 +60,7 @@ const Joblist = ({
                       type="button"
                       onClick={handleAddFilter}
                       value={item.level}
+                      className={css.stackBtn}
                     >
                       {item.level}
                     </button>
@@ -65,6 +71,7 @@ const Joblist = ({
                         type="button"
                         onClick={handleAddFilter}
                         value={language}
+                        className={css.stackBtn}
                       >
                         {language}
                       </button>
@@ -76,6 +83,7 @@ const Joblist = ({
                         type="button"
                         onClick={handleAddFilter}
                         value={tool}
+                        className={css.stackBtn}
                       >
                         {tool}
                       </button>
