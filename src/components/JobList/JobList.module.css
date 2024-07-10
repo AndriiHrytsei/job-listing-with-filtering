@@ -2,24 +2,121 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 20px;
-  /* margin-top: 80px; */
+  row-gap: 40px;
+  font-family: "League Spartan";
+  margin-top: 50px;
 }
 
 .jobItem {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-flow: column wrap;
+  row-gap: 20px;
   width: 90%;
   max-width: 85rem;
   background-color: #fff;
+  padding: 0 0 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px 0px var(--desaturated-dark-cyan);
 }
 
+.companyLogo {
+  position: relative;
+  bottom: 30px;
+}
+
+.companyLogo img {
+  width: 4rem;
+}
+
+.jobInfo {
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 15px;
+}
+
+.heading {
+  display: flex;
+  column-gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.companyName {
+  display: inline;
+  font-size: 1em;
+  color: var(--desaturated-dark-cyan);
+  margin-right: 15px;
+}
+
+.new {
+  background-color: var(--desaturated-dark-cyan);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9em;
+  padding: 3px 12px 0;
+  border-radius: 20px;
+}
+
+.featured {
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9em;
+  padding: 3px 12px 0;
+  border-radius: 20px;
+  background-color: var(--very-dark-grayish-cyan);
+}
+
+.jobName {
+  transition: color 0.3s linear;
+  font-size: 1em;
+}
+
+.jobName:hover {
+  color: var(--desaturated-dark-cyan);
+}
 
 .jobDetails {
   display: flex;
   column-gap: 30px;
+  color: var(--dark-grayish-cyan);
+  border-bottom: 1px solid var(--dark-grayish-cyan);
+  padding-bottom: 15px;
+}
+
+.jobDetailsItem {
+  position: relative;
+}
+
+.jobDetailsItem:not(:first-child):before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 5px;
+  height: 5px;
+  background-color: var(--dark-grayish-cyan);
+  top: 8px;
+  left: -18px;
+  border-radius: 10px;
 }
 
 .stack {
   display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.stackBtn {
+  background-color: var(--background);
+  border: none;
+  border-radius: 5px;
+  color: var(--desaturated-dark-cyan);
+  padding: 5px 10px;
+  font-weight: 700;
+  transition: all 0.3s linear;
+}
+
+.stackBtn:hover {
+  background-color: var(--desaturated-dark-cyan);
+  color: #fff;
 }

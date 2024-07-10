@@ -51,14 +51,14 @@
 }
 
 .filterItem:hover button {
-  background-color: #000;
+  background-color: var(--very-dark-grayish-cyan);
 }
 
 .clearAll {
   background-color: transparent;
   border: none;
   color: var(--dark-grayish-cyan);
-  transition: all 0.7s linear;
+  transition: all 0.3s linear;
   text-decoration: underline;
   text-decoration-color: transparent;
 }
