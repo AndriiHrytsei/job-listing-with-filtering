@@ -21,21 +21,31 @@ const Joblist = ({
     <section className={css.jobListContainer}>
       <ul className={css.jobList}>
         {data.map((item) => {
-          const filtersList: string[] = item.languages
-            .concat(item.tools)
-            .concat(item.level)
-            .concat(item.role);
+          const filtersList: string[] = [
+            item.role,
+            item.level,
+            ...item.languages,
+            ...item.tools,
+          ];
           if (selectedFilters.every((filter) => filtersList.includes(filter))) {
             return (
-              <li key={item.id} className={css.jobItem}>
+              <li key={item.id} className={css.jobItem} style={{borderLeft: item.featured ? "10px solid var(--desaturated-dark-cyan)" : "none"}}>
                 <div className={css.companyLogo}>
                   <img src={item.logo} alt="company logo" />
                 </div>
                 <div className={css.jobInfo}>
                   <div className={css.heading}>
                     <h3 className={css.companyName}>{item.company}</h3>
-                    {item.new === true ? <span className={css.new}>NEW!</span> : <></>}
-                    {item.featured === true ? <span className={css.featured}>FEATURED</span> : <></>}
+                    {item.new === true ? (
+                      <span className={css.new}>NEW!</span>
+                    ) : (
+                      <></>
+                    )}
+                    {item.featured === true ? (
+                      <span className={css.featured}>FEATURED</span>
+                    ) : (
+                      <></>
+                    )}
                   </div>
                   <h2 className={css.jobName}>{item.position}</h2>
                   <ul className={css.jobDetails}>
@@ -45,47 +55,15 @@ const Joblist = ({
                   </ul>
                 </div>
                 <ul className={css.stack}>
-                  <li>
-                    <button
-                      type="button"
-                      onClick={handleAddFilter}
-                      value={item.role}
-                      className={css.stackBtn}
-                    >
-                      {item.role}
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      onClick={handleAddFilter}
-                      value={item.level}
-                      className={css.stackBtn}
-                    >
-                      {item.level}
-                    </button>
-                  </li>
-                  {item.languages.map((language) => (
-                    <li key={language}>
+                  {filtersList.map((filter) => (
+                    <li key={filter}>
                       <button
                         type="button"
                         onClick={handleAddFilter}
-                        value={language}
+                        value={filter}
                         className={css.stackBtn}
                       >
-                        {language}
-                      </button>
-                    </li>
-                  ))}
-                  {item.tools.map((tool) => (
-                    <li key={tool}>
-                      <button
-                        type="button"
-                        onClick={handleAddFilter}
-                        value={tool}
-                        className={css.stackBtn}
-                      >
-                        {tool}
+                        {filter}
                       </button>
                     </li>
                   ))}
