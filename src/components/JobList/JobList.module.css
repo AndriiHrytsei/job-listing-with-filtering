@@ -4,7 +4,7 @@
   align-items: center;
   row-gap: 40px;
   font-family: "League Spartan";
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 
 .jobItem {
@@ -119,4 +119,33 @@
 .stackBtn:hover {
   background-color: var(--desaturated-dark-cyan);
   color: #fff;
+}
+
+@media screen and (min-width: 900px) {
+  .jobItem {
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 20px 20px 20px 25px;
+  }
+  
+  .companyLogo {
+    bottom: 0;
+    margin-right: 20px;
+  }
+  
+  .companyLogo img {
+    width: 5.5rem;
+  }
+  
+  .jobDetails {
+    padding: none;
+    border: none;
+  }
+
+  .stack {
+    margin-left: 30px;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
 }
